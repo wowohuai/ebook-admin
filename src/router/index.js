@@ -71,7 +71,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'dashboard',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import(/* webpackChunkName: "index" */'@/views/dashboard/index'),
         name: '首页',
         meta: { title: '首页', icon: 'dashboard', affix: true }
       }
@@ -94,20 +94,20 @@ export const asyncRoutes = [
       {
         path: 'create',
         name: '图书上传',
-        component: () => import('@/views/book/create'),
+        component: () => import(/* webpackChunkName: "create" */ '@/views/book/create'),
         meta: { title: '图书上传', icon: 'edit', roles: ['admin', 'editor'], affix: true }
       },
       {
         path: 'edit/:fileName',
         name: '图书编辑',
-        component: () => import('@/views/book/edit'),
+        component: () => import(/* webpackChunkName: "edit" */ '@/views/book/edit'),
         meta: { title: '图书编辑', icon: 'edit', roles: ['admin', 'editor'], activeMenu: '/book/list' },
         hidden: true
       },
       {
         path: 'list',
         name: '图书列表',
-        component: () => import('@/views/book/list'),
+        component: () => import(/* webpackChunkName: "list" */ '@/views/book/list'),
         meta: { title: '图书列表', icon: 'list', roles: ['admin'] }
       }
     ]
